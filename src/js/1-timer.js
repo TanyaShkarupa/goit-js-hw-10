@@ -15,6 +15,8 @@ const secondsValue = document.querySelector('[data-seconds]');
 let userSelectedDate = null;
 let timerId = null;
 
+startButton.disabled = true;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -25,6 +27,8 @@ const options = {
     const selectedDate = selectedDates[0];
 
     if (!selectedDate) {
+      userSelectedDate = null;
+      startButton.disabled = true;
       return;
     }
 
@@ -75,16 +79,7 @@ function updateTimer() {
     return;
   }
 
-  const time = convertMs(diff);
-
-  daysValue.textContent = addLeadingZero(time.days);
-  hoursValue.textContent = addLeadingZero(time.hours);
-  minutesValue.textContent = addLeadingZero(time.minutes);
-  secondsValue.textContent = addLeadingZero(time.seconds);
-}
-
-function addLeadingZero(value) {
-  return String(value).padStart(2, '0');
+  updateTimerDisplay(diff);
 }
 
 function updateTimerDisplay(ms) {
@@ -94,6 +89,10 @@ function updateTimerDisplay(ms) {
   hoursValue.textContent = addLeadingZero(time.hours);
   minutesValue.textContent = addLeadingZero(time.minutes);
   secondsValue.textContent = addLeadingZero(time.seconds);
+}
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
 }
 
 function convertMs(ms) {
