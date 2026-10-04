@@ -1,0 +1,139 @@
+.timer-container {
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto 0;
+  padding: 30px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.timer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+#datetime-picker {
+  width: 260px;
+  padding: 12px 14px;
+
+  font-size: 16px;
+  color: #2f2f2f;
+
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  outline: none;
+
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+#datetime-picker:focus {
+  border-color: #747bff;
+  box-shadow: 0 0 0 3px rgba(116, 123, 255, 0.15);
+}
+
+.timer-controls button {
+  padding: 13px 22px;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #747bff, #8b5cf6);
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    opacity 200ms ease;
+}
+
+.timer-controls button:hover:not(:disabled),
+.timer-controls button:focus:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(116, 123, 255, 0.3);
+}
+
+.timer-controls button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.timer-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.field {
+  min-width: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.value {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  color: #2f2f2f;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #747474;
+}
+
+/* Mobile */
+
+@media screen and (max-width: 600px) {
+  .timer-container {
+    padding: 20px;
+  }
+
+  .timer-controls {
+    flex-direction: column;
+  }
+
+  #datetime-picker {
+    width: 100%;
+  }
+
+  .timer-controls button {
+    width: 100%;
+  }
+
+  .timer {
+    gap: 12px;
+  }
+
+  .field {
+    min-width: 65px;
+  }
+
+  .value {
+    font-size: 32px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+}
